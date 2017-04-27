@@ -1,0 +1,87 @@
+Angular2 Work:
+
+Node-jS Installation
+
+Useful links:
+
+
+https://ievangelistblog.wordpress.com/2016/01/13/building-an-angular2-spa-with-asp-net-5-mvc-6-web-api-2-and-typescript-1-7-5/
+http://www.hanselman.com/blog/ASPNET5IsDeadIntroducingASPNETCore10AndNETCore10.aspx
+http://www.c-sharpcorner.com/article/using-mvc-6-and-angularjs-2-with-net-core/
+
+
+http://www.angular2.com/
+
+https://docs.microsoft.com/en-us/aspnet/core/getting-started
+
+http://angularfirst.com/getting-started-with-npm-in-visual-studio/
+
+
+Proxy:
+
+export HTTP_PROXY=http://proxy.pershing.com:8080
+export HTTPS_PROXY=http://proxy.pershing.com:8080
+
+npm config set proxy http://proxy.pershing.com:8080 
+npm config set https-proxy http://proxy.pershing.com:8080
+
+
+
+Solution Worked:
+==================
+
+https://www.infopulse.com/blog/using-angular-2-in-visual-studio-2015-tutorial/ 
+https://www.codeproject.com/Articles/1157542/Step-by-Step-Setup-Angular-in-Visual-Studio-Update
+https://github.com/typings/typings/issues/560
+http://www.davepaquette.com/archive/2014/10/08/how-to-use-gulp-in-visual-studio.aspx
+
+
+
+Add new file named .typingsrc to the project root directory
+Add this content:
+proxy="http://proxy.company.com:8080"
+rejectUnauthorized=false
+
+In windows you can use the below command to create the file with no name
+
+echo anytext > .typingsrc
+
+
+Bower.json file error:
+=====================
+
+Add Proxy setting
+edit .bowerrrc file
+
+{
+  "directory": "wwwroot/lib",
+  "proxy":"http://proxy.pershing.com:8080",
+"https-proxy":"http://proxy.pershing.com:8080",
+"strict-ssl": false
+}
+
+Also uncheck everything except $path variable in external wb tools and
+move it to the top.
+
+
+TypeScript related error on Build:
+==================================
+
+Install Typescript tool for Visual Studion 2015 and restart the machine.
+Index.d.ts error: remove these lines from Main.ts files.
+
+typescript: error TS2693: 'Promise' only refers to a type, but is being used as a value here
+== For  this make changes in tsconfig.json file and make and under the compiler option 
+target to : es2015
+
+
+Error message “No exports were found that match the constraint contract name”
+== ust delete or rename this folder:
+
+%AppData%\..\Local\Microsoft\VisualStudio\11.0\ComponentModelCache
+
+
+
+
+
+
